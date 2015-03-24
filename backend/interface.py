@@ -84,7 +84,7 @@ class Interface:
 					rad_team_id = match["radiant_team"]["team_id"]
 					# unused
 					if "players" in match:
-						if match["players"]["team"] == 0:
+						if int(match["players"]["team"]) == 0:
 							rad_team_live_roster.append(match["players"]["name"])
 					# deprecated, but still works
 					rad_team_roster = getRoster(rad_team_id)
@@ -110,7 +110,7 @@ class Interface:
 					bad_team_id = match["dire_team"]["team_id"]
 					# unused
 					if "players" in match:
-						if match["players"]["team"] == 1:
+						if int(match["players"]["team"]) == 1:
 							bad_team_live_roster.append(match["players"]["name"])
 					bad_team_roster = getRoster(bad_team_id)
 					bad_team_tag = getTeamTag(bad_team_tag)
