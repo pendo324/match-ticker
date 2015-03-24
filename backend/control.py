@@ -1,5 +1,6 @@
 from interface import Interface
 import os
+import time
 
 #Class for running tests
 controller = Interface()
