@@ -155,6 +155,7 @@ class Interface:
 		response = requests.get(schema_api, headers={'Accept-Encoding': 'gzip'})
 		if response.status_code == 200:
 			items = response.json()
+			print(response.text)
 			with open(os.path.dirname(__file__) + '/../item_schema.json', 'w') as json_file:
 			 	json_file.write(json.dumps(items))
 		with open(os.path.dirname(__file__) + '/../item_schema.json', 'r') as f:
