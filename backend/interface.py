@@ -87,7 +87,7 @@ class Interface:
 					#	if int(match["players"]["team"]) == 0:
 					#		rad_team_live_roster.append(match["players"]["name"])
 					# deprecated, but still works
-					rad_team_roster = getRoster(rad_team_id)
+					rad_team_roster = self.getRoster(rad_team_id)
 					rad_team_tag = getTeamTag(rad_team_id)
 					if "team_name" in match["radiant_team"]:
 						rad_team_name = match["radiant_team"]["team_name"]
