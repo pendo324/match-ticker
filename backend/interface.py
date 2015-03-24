@@ -39,7 +39,7 @@ class Interface:
 				if 'player_' + str(i) + '_account_id' in __team__:
 					roster.append(__team__['player_' + str(i) + '_account_id'])
 				i = i + 1
-			return getNames(roster)
+			return self.getNames(roster)
 	
 	# team tags from Valve. May be phased out depending on usefulness
 	def getTeamTag(self, team_id):
