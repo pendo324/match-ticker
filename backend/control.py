@@ -15,8 +15,8 @@ controller.getLiveGames()
 controller.getSchedules()
 
 #Update leagues.json
-controller.getLeagues()
+#controller.getLeagues()
 
 #Add logos to leagues
 #time.sleep(20)
-#controller.addLeagueLogos()
+controller.addLeagueLogos(controller.getLeagues())
