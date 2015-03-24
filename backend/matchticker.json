@@ -1,0 +1,304 @@
+{
+   "games":[
+      {
+         "live in":"2h 44m",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/5831-dota-2-champions-league-5/1528-regions/5833-china/matches/69196-vici-gaming-potential-vs-lgd",
+         "simple_title":"Vici Gaming... vs LGD",
+         "team 1":{
+            "score":"",
+            "name":"Vici Gaming",
+            "bet":"18%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"LGD",
+            "bet":"62%"
+         },
+         "title":"Vici Gaming... 18% vs 62% LGD",
+         "has_vods":false,
+         "match_id":"69196"
+      },
+      {
+         "live in":"3h 44m",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/5971-starladder-season-12/1576-phase-1-china/5980-group-a/matches/69095-tongfu-vs-ehome",
+         "simple_title":"TongFu vs EHOME",
+         "team 1":{
+            "score":"",
+            "name":"TongFu",
+            "bet":"32%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"EHOME",
+            "bet":"68%"
+         },
+         "title":"TongFu 32% vs 68% EHOME",
+         "has_vods":false,
+         "match_id":"69095"
+      },
+      {
+         "live in":"4h 44m",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/5831-dota-2-champions-league-5/1528-regions/5833-china/matches/69197-cdec-gaming-vs-newbee",
+         "simple_title":"CDEC Gaming vs NewBee",
+         "team 1":{
+            "score":"",
+            "name":"CDEC Gaming",
+            "bet":"20%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"NewBee",
+            "bet":"36%"
+         },
+         "title":"CDEC Gaming 20% vs 36% NewBee",
+         "has_vods":false,
+         "match_id":"69197"
+      },
+      {
+         "live in":"5h 44m",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/6006-gest-sea-cup/matches/69213-arcanysgaming-vs-lostboys",
+         "simple_title":"ArcanysGaming vs LostBoys",
+         "team 1":{
+            "score":"",
+            "name":"ArcanysGaming",
+            "bet":"79%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"LostBoys",
+            "bet":"21%"
+         },
+         "title":"ArcanysGaming 79% vs 21% LostBoys",
+         "has_vods":false,
+         "match_id":"69213"
+      },
+      {
+         "live in":"6h 44m",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/5971-starladder-season-12/1576-phase-1-china/5981-group-b/matches/69099-team-dk-vs-newbee",
+         "simple_title":"Team DK vs NewBee",
+         "team 1":{
+            "score":"",
+            "name":"Team DK",
+            "bet":"8%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"NewBee",
+            "bet":"92%"
+         },
+         "title":"Team DK 8% vs 92% NewBee",
+         "has_vods":false,
+         "match_id":"69099"
+      },
+      {
+         "live in":"8h 44m",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/6006-gest-sea-cup/matches/69210-ehome-malaysia-vs-first-departure",
+         "simple_title":"EHOME Malaysia vs First Departure",
+         "team 1":{
+            "score":"",
+            "name":"EHOME Malaysia",
+            "bet":"94%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"First Departure",
+            "bet":"6%"
+         },
+         "title":"EHOME Malaysia 94% vs 6% First Departure",
+         "has_vods":false,
+         "match_id":"69210"
+      },
+      {
+         "live in":"9h 44m",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/5542-dota-pit-league-season-3/1455-group-stage/5544-group-a/matches/66751-asus-polar-vs-powerrangers",
+         "simple_title":"ASUS.Polar vs PowerRangers",
+         "team 1":{
+            "score":"",
+            "name":"ASUS.Polar",
+            "bet":"30%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"PowerRangers",
+            "bet":"44%"
+         },
+         "title":"ASUS.Polar 30% vs 44% PowerRangers",
+         "has_vods":false,
+         "match_id":"66751"
+      },
+      {
+         "live in":"11h 44m",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/6007-eizo-cup-15/matches/69231-immortal-mode-on-vs-flipsid3-tactics-dota2",
+         "simple_title":"Immortal Mode On vs FlipSid3...",
+         "team 1":{
+            "score":"",
+            "name":"Immortal Mode On",
+            "bet":"42%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"FlipSid3",
+            "bet":"58%"
+         },
+         "title":"Immortal Mode On 42% vs 58% FlipSid3...",
+         "has_vods":false,
+         "match_id":"69231"
+      },
+      {
+         "live in":"12h 44m",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/5542-dota-pit-league-season-3/1455-group-stage/5544-group-a/matches/66763-powerrangers-vs-team-tinker",
+         "simple_title":"PowerRangers vs Team Tinker",
+         "team 1":{
+            "score":"",
+            "name":"PowerRangers",
+            "bet":"13%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"Team Tinker",
+            "bet":"19%"
+         },
+         "title":"PowerRangers 13% vs 19% Team Tinker",
+         "has_vods":false,
+         "match_id":"66763"
+      },
+      {
+         "live in":"12h 59m",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/6007-eizo-cup-15/matches/69232-spin-to-win-vs-london-conspiracy-dota2",
+         "simple_title":"Spin to Win vs London...",
+         "team 1":{
+            "score":"",
+            "name":"Spin to Win",
+            "bet":"83%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"London Conspiracy Dota2",
+            "bet":"18%"
+         },
+         "title":"Spin to Win 83% vs 18% London...",
+         "has_vods":false,
+         "match_id":"69232"
+      },
+      {
+         "live in":"1d 2h",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/5831-dota-2-champions-league-5/1528-regions/5833-china/matches/69201-vici-gaming-potential-vs-cdec-gaming",
+         "simple_title":"Vici Gaming... vs CDEC Gaming",
+         "team 1":{
+            "score":"",
+            "name":"Vici Gaming",
+            "bet":"0%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"CDEC Gaming",
+            "bet":"0%"
+         },
+         "title":"Vici Gaming... 0% vs 0% CDEC Gaming",
+         "has_vods":false,
+         "match_id":"69201"
+      },
+      {
+         "live in":"1d 3h",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/5971-starladder-season-12/1576-phase-1-china/5981-group-b/matches/69100-vici-gaming-vs-newbee",
+         "simple_title":"ViCi Gaming vs NewBee",
+         "team 1":{
+            "score":"",
+            "name":"ViCi Gaming",
+            "bet":"87%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"NewBee",
+            "bet":"13%"
+         },
+         "title":"ViCi Gaming 87% vs 13% NewBee",
+         "has_vods":false,
+         "match_id":"69100"
+      },
+      {
+         "live in":"1d 4h",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/5831-dota-2-champions-league-5/1528-regions/5833-china/matches/69207-lgd-vs-cdec-gaming",
+         "simple_title":"LGD vs CDEC Gaming",
+         "team 1":{
+            "score":"",
+            "name":"LGD",
+            "bet":"100%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"CDEC Gaming",
+            "bet":"0%"
+         },
+         "title":"LGD 100% vs 0% CDEC Gaming",
+         "has_vods":false,
+         "match_id":"69207"
+      },
+      {
+         "live in":"1d 6h",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/5971-starladder-season-12/1576-phase-1-china/5981-group-b/matches/69101-hypergloryteam-vs-team-dk",
+         "simple_title":"HyperGloryTeam vs Team DK",
+         "team 1":{
+            "score":"",
+            "name":"HyperGloryTeam",
+            "bet":"100%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"Team DK",
+            "bet":"0%"
+         },
+         "title":"HyperGloryTeam 100% vs 0% Team DK",
+         "has_vods":false,
+         "match_id":"69101"
+      },
+      {
+         "live in":"1d 8h",
+         "tounament":"http://www.gosugamers.net/",
+         "game":"dota2",
+         "url":"http://www.gosugamers.net/dota2/tournaments/6006-gest-sea-cup/matches/69212-signature-trust-vs-theprime",
+         "simple_title":"Signature.TrusT vs THEPRIME:)",
+         "team 1":{
+            "score":"",
+            "name":"Signature.TrusT",
+            "bet":"100%"
+         },
+         "team 2":{
+            "score":"",
+            "name":"THEPRIME:)",
+            "bet":"0%"
+         },
+         "title":"Signature.TrusT 100% vs 0% THEPRIME:)",
+         "has_vods":false,
+         "match_id":"69212"
+      }
+   ]
+}
