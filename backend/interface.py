@@ -170,7 +170,7 @@ class Interface:
 			leagues = json.load(f)
 		if leagues is not None:
 			for league in leagues['result']['leagues']:
-				league.append('logo' : getLeagueLogo(league['itemdef']))
+				league.append({'logo' : getLeagueLogo(league['itemdef'])})
 	
 #specific use case of mine :P
 if __name__ == '__main__': 
