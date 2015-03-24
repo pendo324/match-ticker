@@ -14,7 +14,7 @@ dir = os.path.dirname(os.path.abspath(__file__))
 class Interface:
 	# used to get names from steam_ids for official team rosters in the team
 	# database (known_teams.json)
-	def getNames(steam_ids):
+	def getNames(self, steam_ids):
 		roster = {'players': []}
 		if steam_ids is not None and steam_ids is not 0:
 			for i in range(0, len(steam_ids)):
@@ -28,7 +28,7 @@ class Interface:
 	
 	# used to keep team rosters in the database up-to-date
 	# live rosters are the ones that we will display on match pages
-	def getRoster(team_id):
+	def getRoster(self, team_id):
 		team_api = "https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v001/?key=" + api_key + "&start_at_team_id=" + str(team_id) + "&teams_requested=1"
 		response = requests.get(team_api, headers={'Accept-Encoding': 'gzip'})
 		if response.status_code == 200:
@@ -42,7 +42,7 @@ class Interface:
 			return getNames(roster)
 	
 	# team tags from Valve. May be phased out depending on usefulness
-	def getTeamTag(team_id):
+	def getTeamTag(self, team_id):
 		team_api = "https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v001/?key=" + api_key + "&start_at_team_id=" + str(team_id) + "&teams_requested=1"
 		response = requests.get(team_api, headers={'Accept-Encoding': 'gzip'})
 		if response.status_code == 200:
@@ -53,7 +53,7 @@ class Interface:
 	# gets all live games. Used to update list of teams currently playing. Also
 	# used to keep games that league_teir == 1 or 2 (by default) displayed on
 	# personalized ticker
-	def getLiveGames():
+	def getLiveGames(self):
 		teams_url = "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/?key="+ api_key
 		response = requests.get(teams_url, stream = True, headers={'Accept-Encoding': 'gzip'})
 		if response.status_code == 200:
@@ -63,7 +63,7 @@ class Interface:
 			 	json_file.write(json.dumps(__team__))
 			 return __team__
 	
-	def dlLogo(logoid, dest):
+	def dlLogo(self, logoid, dest):
 		logo_req = "http://api.steampowered.com/ISteamRemoteStorage/GetUGCFileDetails/v1/?key=" + api_key + "&appid=570&ugcid=" + str(logoid)
 		response = requests.get(logo_req, stream = True)
 		if response.status_code == 200:
@@ -74,7 +74,7 @@ class Interface:
 	
 	# outputs a JSON file (known_teams.json) that is continuously updated when new
 	# teams are found. Stores relevant logos, tags, rosters, etc.
-	def processTeams(matches):
+	def processTeams(self, matches):
 		with open(r'../known_teams.json') as f_json:
 			teams_dict = json.load(f_json)
 		#teams_dict = {'teams': []}
@@ -136,21 +136,21 @@ class Interface:
 	
 	# outputs a JSON file (upcoming.json) that is continuously downloaded from
 	# Valve to track upcoming games
-	def getSchedules():
+	def getSchedules(self):
 		schedule_api = "https://api.steampowered.com/IDOTA2Match_570/GetScheduledLeagueGames/v001/?key=" + api_key
 		response = requests.get(schedule_api, headers={'Accept-Encoding': 'gzip'})
 		if response == 200:
 			with open(r'../schedule.json', 'w') as json_file:
 			 	json_file.write(json.dumps(items))
 	
-	def getLeagues():
+	def getLeagues(self):
 		league_api = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v001/?key=" + api_key
 		response = requests.get(league_api, headers={'Accept-Encoding': 'gzip'})
 		if response == 200:
 			with open(r'../leagues.json', 'w') as json_file:
 			 	json_file.write(json.dumps(items))
 	
-	def getLeagueLogo(itemdef):
+	def getLeagueLogo(self, itemdef):
 		schema_api = "https://api.steampowered.com/IDOTA2Match_570/EconomySchema/v001/?key=" + api_key
 		response = requests.get(schema_api, headers={'Accept-Encoding': 'gzip'})
 		if response.status_code == 200:
@@ -165,7 +165,7 @@ class Interface:
 				if item['defindex'] == itemdef:
 					return item["image_url"]
 	
-	def addLeagueLogos():
+	def addLeagueLogos(self):
 		with open(r'../leagues.json', 'w') as f:
 			leagues = json.load(f)
 		if leagues is not None:
