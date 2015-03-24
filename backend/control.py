@@ -16,4 +16,4 @@ controller.getSchedules()
 controller.getLeagues()
 
 #Add logos to leagues
-controller.addLeagueLogos()
+#controller.addLeagueLogos()

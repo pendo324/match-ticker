@@ -156,6 +156,7 @@ class Interface:
 		if response.status_code == 200:
 			items = response.json()
 			print(response.text)
+			print("MARKER")
 			with open(os.path.dirname(__file__) + '/../item_schema.json', 'w') as json_file:
 			 	json_file.write(json.dumps(items))
 		with open(os.path.dirname(__file__) + '/../item_schema.json', 'r') as f:
