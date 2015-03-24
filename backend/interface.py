@@ -168,7 +168,7 @@ class Interface:
 	
 	def addLeagueLogos(self):
 		with open(os.path.dirname(__file__) + '/../leagues.json', 'w+') as f:
-			leagues = json.load(f)
+			__leagues = json.load(f)
 		if leagues is not None:
 			for league in leagues['result']['leagues']:
 				league.append({'logo' : getLeagueLogo(league['itemdef'])})
