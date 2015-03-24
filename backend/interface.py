@@ -149,7 +149,7 @@ class Interface:
 		rs = requests.get(league_api, headers={'Accept-Encoding': 'gzip'})
 		leagues = json.loads(rs.text)
 		with open(os.path.dirname(__file__) + '/../leagues.json', 'w') as json_file:
-		 	json_file.write(json.dumps(_leagues))
+		 	json_file.write(json.dumps(leagues))
 		return leagues
 	
 	def getLeagueLogo(self, itemdef):
