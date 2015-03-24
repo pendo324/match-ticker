@@ -147,10 +147,10 @@ class Interface:
 	def getLeagues(self):
 		league_api = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v0001/?key=" + api_key + "&language=en_US"
 		rs = requests.get(league_api, headers={'Accept-Encoding': 'gzip'})
-		_leagues = json.loads(rs.text)
+		leagues = json.loads(rs.text)
 		with open(os.path.dirname(__file__) + '/../leagues.json', 'w') as json_file:
 		 	json_file.write(json.dumps(_leagues))
-		return json_file
+		return leagues
 	
 	def getLeagueLogo(self, itemdef):
 		schema_api = "https://api.steampowered.com/IDOTA2Match_570/EconomySchema/v001/?key=" + api_key
@@ -170,9 +170,9 @@ class Interface:
 	def addLeagueLogos(self, json_file):
 		#with open(os.path.dirname(__file__) + '/../leagues.json', 'w+') as f:
 		#	__leagues = json.load(f)
-		__leagues = json.load(json_file)
-		if __leagues is not None:
-			for league in __leagues['result']['leagues']:
+		leagues = json_file
+		if leagues is not None:
+			for league in leagues['result']['leagues']:
 				league.append({'logo' : getLeagueLogo(league['itemdef'])})
 	
 #specific use case of mine :P
