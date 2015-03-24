@@ -1,4 +1,4 @@
-import Interface from interface
+from interface import Interface
 
 #Class for running tests
 controller = Interface()
