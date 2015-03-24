@@ -170,7 +170,7 @@ class Interface:
 	def addLeagueLogos(self, json_file):
 		#with open(os.path.dirname(__file__) + '/../leagues.json', 'w+') as f:
 		#	__leagues = json.load(f)
-		__leagues = json_file
+		__leagues = json.load(json_file)
 		if __leagues is not None:
 			for league in __leagues['result']['leagues']:
 				league.append({'logo' : getLeagueLogo(league['itemdef'])})
