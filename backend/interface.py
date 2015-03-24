@@ -148,6 +148,7 @@ class Interface:
 		league_api = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v0001/?key=" + api_key + "&language=en_US"
 		response = requests.get(league_api, headers={'Accept-Encoding': 'gzip'})
 		leagues = response.json()
+		print(leagues)
 		with open(os.path.dirname(__file__) + '/../leagues.json', 'w') as json_file:
 		 	json_file.write(json.dumps(leagues))
 	
