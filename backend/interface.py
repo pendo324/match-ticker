@@ -88,7 +88,7 @@ class Interface:
 					#		rad_team_live_roster.append(match["players"]["name"])
 					# deprecated, but still works
 					rad_team_roster = self.getRoster(rad_team_id)
-					rad_team_tag = getTeamTag(rad_team_id)
+					rad_team_tag = self.getTeamTag(rad_team_id)
 					if "team_name" in match["radiant_team"]:
 						rad_team_name = match["radiant_team"]["team_name"]
 						file_name = rad_team_name.replace("/", u"\2044")
@@ -113,7 +113,7 @@ class Interface:
 					#	if int(match["players"]["team"]) == 1:
 					#		bad_team_live_roster.append(match["players"]["name"])
 					#bad_team_roster = getRoster(bad_team_id)
-					bad_team_tag = getTeamTag(bad_team_tag)
+					bad_team_tag = self.getTeamTag(bad_team_tag)
 					if "team_name" in match["dire_team"]:
 						bad_team_name = match["dire_team"]["team_name"]
 						file_name = bad_team_name.replace("/", u"\2044")
