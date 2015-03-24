@@ -173,7 +173,7 @@ class Interface:
 				league.append({'logo' : getLeagueLogo(league['itemdef'])})
 	
 #specific use case of mine :P
-if __name__ == '__main__': 
+#if __name__ == '__main__': 
 	#i = 0
 	#while (i < 144):
 	#	processTeams(getLiveGames())
