@@ -174,7 +174,7 @@ class Interface:
 		if leagues is not None:
 			for league in leagues['result']['leagues']:
 				print type(league)
-				league.append({'logo' : getLeagueLogo(league['itemdef'])})
+				league.update({'logo' : getLeagueLogo(league['itemdef'])})
 	
 #specific use case of mine :P
 #if __name__ == '__main__': 
