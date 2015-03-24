@@ -9,8 +9,10 @@ api_key = '26AF57E923E0D8E5E63C006BA68D78FE'
 global dir
 dir = os.path.dirname(os.path.abspath(__file__))
 
-def getNames(steam_ids, tag):
-	roster = {'tag': tag, 'players': []}
+# used to get names from steam_ids for official team rosters in the team
+# database (known_teams.json)
+def getNames(steam_ids):
+	roster = {'players': []}
 	if steam_ids is not None and steam_ids is not 0:
 		for i in range(0, len(steam_ids)):
 			#print(str(i) + ' \t\t\t\t\t' + str(steam_ids) + ' ' + tag)
@@ -21,23 +23,33 @@ def getNames(steam_ids, tag):
 
 	return roster
 
+# used to keep team rosters in the database up-to-date
+# live rosters are the ones that we will display on match pages
 def getRoster(team_id):
 	team_api = "https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v001/?key=" + api_key + "&start_at_team_id=" + str(team_id) + "&teams_requested=1"
 	response = requests.get(team_api, headers={'Accept-Encoding': 'gzip'})
 	if response.status_code == 200:
 		__team__ = response.json()["result"]["teams"][0]
-		#roster_dict = {'roster': []}
-		#roster = ''
 		roster = []
-		tag = str(__team__['tag'])
-		#return response.json()
 		i = 0
 		while i < 5:
 			if 'player_' + str(i) + '_account_id' in __team__:
 				roster.append(__team__['player_' + str(i) + '_account_id'])
 			i = i + 1
-		return getNames(roster, tag)
+		return getNames(roster)
 
+# team tags from Valve. May be phased out depending on usefulness
+def getTeamTag(team_id):
+	team_api = "https://api.steampowered.com/IDOTA2Match_570/GetTeamInfoByTeamID/v001/?key=" + api_key + "&start_at_team_id=" + str(team_id) + "&teams_requested=1"
+	response = requests.get(team_api, headers={'Accept-Encoding': 'gzip'})
+	if response.status_code == 200:
+ 		__team__ = response.json()["result"]["teams"][0]
+		tag = str(__team__["tag"])
+		return tag
+
+# gets all live games. Used to update list of teams currently playing. Also
+# used to keep games that league_teir == 1 or 2 (by default) displayed on
+# personalized ticker
 def getLiveGames():
 	teams_url = "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/?key="+ api_key
 	response = requests.get(teams_url, stream = True, headers={'Accept-Encoding': 'gzip'})
@@ -57,16 +69,23 @@ def dlLogo(logoid, dest):
 			with open(dest, 'wb') as f:
 				shutil.copyfileobj(r.raw, f)
 
+# outputs a JSON file (known_teams.json) that is continuously updated when new
+# teams are found. Stores relevant logos, tags, rosters, etc.
 def processTeams(matches):
 	with open('known_teams.json') as f_json:
 		teams_dict = json.load(f_json)
 	#teams_dict = {'teams': []}
 	if matches is not None:
 		for match in matches["result"]["games"]:
-			#print (match["radiant_team"]["team_id"])
 			if "radiant_team" in match:
 				rad_team_id = match["radiant_team"]["team_id"]
+				# unused
+				if "players" in match:
+					if match["players"]["team"] == 0:
+						rad_team_live_roster.append(match["players"]["name"])
+				# deprecated, but still works
 				rad_team_roster = getRoster(rad_team_id)
+				rad_team_tag = getTeamTag(rad_team_id)
 				if "team_name" in match["radiant_team"]:
 					rad_team_name = match["radiant_team"]["team_name"]
 					file_name = rad_team_name.replace("/", u"\2044")
@@ -77,6 +96,7 @@ def processTeams(matches):
 								teams_dict['teams'].append({
 									'id' : rad_team_id,
 									'name' : rad_team_name,
+									'tag' : rad_team_tag,
 									'logo' : rad_team_logo,
 									'roster' : rad_team_roster
 								})
@@ -85,7 +105,13 @@ def processTeams(matches):
 	
 			if "dire_team" in match:
 				bad_team_id = match["dire_team"]["team_id"]
+				# unused
+				if "players" in match:
+					if match["players"]["team"] == 1:
+						bad_team_live_roster.append(match["players"]["name"])
+				# deprecated, but still works
 				bad_team_roster = getRoster(bad_team_id)
+				bad_team_tag = getTeamTag(bad_team_tag)
 				if "team_name" in match["dire_team"]:
 					bad_team_name = match["dire_team"]["team_name"]
 					file_name = bad_team_name.replace("/", u"\2044")
@@ -96,6 +122,7 @@ def processTeams(matches):
 								teams_dict['teams'].append({
 									'id' : bad_team_id,
 									'name' : bad_team_name,
+									'tag' : bad_team_tag,
 									'logo' : bad_team_logo,
 									'roster' : bad_team_roster
 								})
@@ -105,6 +132,25 @@ def processTeams(matches):
 	with open('known_teams.json', 'w') as json_file:
 		json_file.write(json.dumps(teams_dict))
 
+# outputs a JSON file (upcoming.json) that is continuously downloaded from
+# Valve to track upcoming games
+def getSchedules():
+	schedule_api = "https://api.steampowered.com/IDOTA2Match_570/GetScheduledLeagueGames/v001/?key=" + api_key
+
+
+def getLeagueInfo(matches):
+	league_api = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v001/?key=" + api_key
+
+
+def getLeagueLogo(league_id):
+	schema_api = "https://api.steampowered.com/IDOTA2Match_570/EconomySchema/v001/?key=" + api_key
+	response = requests.get(team_api, headers={'Accept-Encoding': 'gzip'})
+	if response.status_code == 200:
+		items = response.json()
+		 with open(r'item_schema.json', 'w') as json_file:
+		 	json_file.write(json.dumps(items))
+
+#specific use case of mine :P
 if __name__ == '__main__': 
 	i = 0
 	while (i < 144):
