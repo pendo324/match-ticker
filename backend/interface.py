@@ -147,6 +147,7 @@ class Interface:
 		league_api = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v001/?key=" + api_key
 		response = requests.get(league_api, headers={'Accept-Encoding': 'gzip'})
 		if response == 200:
+			print(response.text)
 			with open(os.path.dirname(__file__) + '/../leagues.json', 'w') as json_file:
 			 	json_file.write(json.dumps(items))
 	
@@ -155,8 +156,6 @@ class Interface:
 		response = requests.get(schema_api, headers={'Accept-Encoding': 'gzip'})
 		if response.status_code == 200:
 			items = response.json()
-			print(response.text)
-			print("MARKER")
 			with open(os.path.dirname(__file__) + '/../item_schema.json', 'w') as json_file:
 			 	json_file.write(json.dumps(items))
 		with open(os.path.dirname(__file__) + '/../item_schema.json', 'r') as f:
