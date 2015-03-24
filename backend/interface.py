@@ -104,7 +104,7 @@ class Interface:
 										'roster' : rad_team_roster
 									})
 						if not os.path.isfile(os.path.join(dir, '/../logos/') + rad_team_name + ".png"):
-							dlLogo(match["radiant_team"]["team_logo"], rad_team_logo)
+							self.dlLogo(match["radiant_team"]["team_logo"], rad_team_logo)
 		
 				if "dire_team" in match:
 					bad_team_id = match["dire_team"]["team_id"]
@@ -129,7 +129,7 @@ class Interface:
 										'roster' : bad_team_roster
 									})
 						if not os.path.isfile(os.path.join(dir, '/../logos/') + bad_team_name + ".png"):
-							dlLogo(match["dire_team"]["team_logo"], bad_team_logo)
+							self.dlLogo(match["dire_team"]["team_logo"], bad_team_logo)
 	
 		with open(os.path.dirname(__file__) + '/../known_teams.json', 'w') as json_file:
 			json_file.write(json.dumps(teams_dict))
