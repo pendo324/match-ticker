@@ -112,7 +112,7 @@ class Interface:
 					#if "players" in match:
 					#	if int(match["players"]["team"]) == 1:
 					#		bad_team_live_roster.append(match["players"]["name"])
-					bad_team_roster = getRoster(bad_team_id)
+					bad_team_roster = self.getRoster(bad_team_id)
 					bad_team_tag = self.getTeamTag(bad_team_id)
 					if "team_name" in match["dire_team"]:
 						bad_team_name = match["dire_team"]["team_name"]
