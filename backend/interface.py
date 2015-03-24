@@ -54,23 +54,23 @@ class Interface:
 	# used to keep games that league_teir == 1 or 2 (by default) displayed on
 	# personalized ticker
 	def getLiveGames():
-	teams_url = "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/?key="+ api_key
-	response = requests.get(teams_url, stream = True, headers={'Accept-Encoding': 'gzip'})
-	if response.status_code == 200:
-		 #return response.json()
-		 __team__ = response.json()
-		 with open(r'../live_games.json', 'w') as json_file:
-		 	json_file.write(json.dumps(__team__))
-		 return __team__
+		teams_url = "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/?key="+ api_key
+		response = requests.get(teams_url, stream = True, headers={'Accept-Encoding': 'gzip'})
+		if response.status_code == 200:
+			 #return response.json()
+			 __team__ = response.json()
+			 with open(r'../live_games.json', 'w') as json_file:
+			 	json_file.write(json.dumps(__team__))
+			 return __team__
 	
 	def dlLogo(logoid, dest):
-	logo_req = "http://api.steampowered.com/ISteamRemoteStorage/GetUGCFileDetails/v1/?key=" + api_key + "&appid=570&ugcid=" + str(logoid)
-	response = requests.get(logo_req, stream = True)
-	if response.status_code == 200:
-		r = requests.get(response.json()["data"]["url"], stream= True)
-		if r.status_code == 200:
-			with open(dest, 'wb') as f:
-				shutil.copyfileobj(r.raw, f)
+		logo_req = "http://api.steampowered.com/ISteamRemoteStorage/GetUGCFileDetails/v1/?key=" + api_key + "&appid=570&ugcid=" + str(logoid)
+		response = requests.get(logo_req, stream = True)
+		if response.status_code == 200:
+			r = requests.get(response.json()["data"]["url"], stream= True)
+			if r.status_code == 200:
+				with open(dest, 'wb') as f:
+					shutil.copyfileobj(r.raw, f)
 	
 	# outputs a JSON file (known_teams.json) that is continuously updated when new
 	# teams are found. Stores relevant logos, tags, rosters, etc.
