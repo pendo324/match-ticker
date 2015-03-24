@@ -173,6 +173,7 @@ class Interface:
 		leagues = json_file
 		if leagues is not None:
 			for league in leagues['result']['leagues']:
+				print type(league)
 				league.append({'logo' : getLeagueLogo(league['itemdef'])})
 	
 #specific use case of mine :P
