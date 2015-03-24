@@ -144,7 +144,7 @@ class Interface:
 			 	json_file.write(json.dumps(items))
 	
 	def getLeagues(self):
-		league_api = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v001/?key=" + api_key
+		league_api = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v0001/?key=" + api_key
 		response = requests.get(league_api, headers={'Accept-Encoding': 'gzip'})
 		if response == 200:
 			print(response.text)
