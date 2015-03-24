@@ -150,7 +150,7 @@ class Interface:
 		_leagues = json.loads(rs.text)
 		with open(os.path.dirname(__file__) + '/../leagues.json', 'w') as json_file:
 		 	json_file.write(json.dumps(_leagues))
-		 return json_file
+		return json_file
 	
 	def getLeagueLogo(self, itemdef):
 		schema_api = "https://api.steampowered.com/IDOTA2Match_570/EconomySchema/v001/?key=" + api_key
