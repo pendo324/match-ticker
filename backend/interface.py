@@ -59,7 +59,7 @@ class Interface:
 		if response.status_code == 200:
 			 #return response.json()
 			 __team__ = response.json()
-			 with open(r'../live_games.json', 'w') as json_file:
+			 with open(os.path.dirname(__file__) + '../live_games.json', 'w') as json_file:
 			 	json_file.write(json.dumps(__team__))
 			 return __team__
 	
@@ -75,7 +75,7 @@ class Interface:
 	# outputs a JSON file (known_teams.json) that is continuously updated when new
 	# teams are found. Stores relevant logos, tags, rosters, etc.
 	def processTeams(self, matches):
-		with open(r'../known_teams.json') as f_json:
+		with open(os.path.dirname(__file__) + '../known_teams.json') as f_json:
 			teams_dict = json.load(f_json)
 		#teams_dict = {'teams': []}
 		if matches is not None:
@@ -92,7 +92,7 @@ class Interface:
 					if "team_name" in match["radiant_team"]:
 						rad_team_name = match["radiant_team"]["team_name"]
 						file_name = rad_team_name.replace("/", u"\2044")
-						rad_team_logo = os.path.join(dir, '../logos/') + file_name + ".png"
+						rad_team_logo = os.path.dirname(__file__) + '../logos/' + file_name + ".png"
 						with open('known_teams.json', 'r') as f:
 							for line in f:
 								if rad_team_name not in line:
@@ -117,7 +117,7 @@ class Interface:
 					if "team_name" in match["dire_team"]:
 						bad_team_name = match["dire_team"]["team_name"]
 						file_name = bad_team_name.replace("/", u"\2044")
-						bad_team_logo = os.path.join(dir, '../logos/') + file_name + ".png"
+						bad_team_logo = os.path.dirname(__file__) + '../logos/' + file_name + ".png"
 						with open('known_teams.json', 'r') as f:
 							for line in f:
 								if bad_team_name not in line:
@@ -131,7 +131,7 @@ class Interface:
 						if not os.path.isfile(os.path.join(dir, '../logos/') + bad_team_name + ".png"):
 							dlLogo(match["dire_team"]["team_logo"], bad_team_logo)
 	
-		with open(r'../known_teams.json', 'w') as json_file:
+		with open(os.path.dirname(__file__) + '../known_teams.json', 'w') as json_file:
 			json_file.write(json.dumps(teams_dict))
 	
 	# outputs a JSON file (upcoming.json) that is continuously downloaded from
@@ -140,14 +140,14 @@ class Interface:
 		schedule_api = "https://api.steampowered.com/IDOTA2Match_570/GetScheduledLeagueGames/v001/?key=" + api_key
 		response = requests.get(schedule_api, headers={'Accept-Encoding': 'gzip'})
 		if response == 200:
-			with open(r'../schedule.json', 'w') as json_file:
+			with open(os.path.dirname(__file__) +'../schedule.json', 'w') as json_file:
 			 	json_file.write(json.dumps(items))
 	
 	def getLeagues(self):
 		league_api = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v001/?key=" + api_key
 		response = requests.get(league_api, headers={'Accept-Encoding': 'gzip'})
 		if response == 200:
-			with open(r'../leagues.json', 'w') as json_file:
+			with open(os.path.dirname(__file__) + '../leagues.json', 'w') as json_file:
 			 	json_file.write(json.dumps(items))
 	
 	def getLeagueLogo(self, itemdef):
@@ -155,9 +155,9 @@ class Interface:
 		response = requests.get(schema_api, headers={'Accept-Encoding': 'gzip'})
 		if response.status_code == 200:
 			items = response.json()
-			with open(r'../item_schema.json', 'w') as json_file:
+			with open(os.path.dirname(__file__) + '../item_schema.json', 'w') as json_file:
 			 	json_file.write(json.dumps(items))
-		with open(r'../item_schema.json', 'r') as f:
+		with open(os.path.dirname(__file__) + '../item_schema.json', 'r') as f:
 			item_schema = json.load(f)
 	
 		if item_schema is not None:
@@ -166,7 +166,7 @@ class Interface:
 					return item["image_url"]
 	
 	def addLeagueLogos(self):
-		with open(r'../leagues.json', 'w') as f:
+		with open(os.path.dirname(__file__) + '../leagues.json', 'w') as f:
 			leagues = json.load(f)
 		if leagues is not None:
 			for league in leagues['result']['leagues']:
