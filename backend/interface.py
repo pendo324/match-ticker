@@ -174,7 +174,6 @@ class Interface:
 		leagues = json_file
 		if leagues is not None:
 			for league in leagues['result']['leagues']:
-				print type(league)
 				league.update({'logo' : self.getLeagueLogo(league['itemdef'])})
 		with open(os.path.dirname(__file__) + '/../leagues.json', 'w') as json_file:
 		 	json_file.write(json.dumps(leagues))	
