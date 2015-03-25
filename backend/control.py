@@ -1,6 +1,7 @@
 from interface import Interface
 import os
 import time
+import threading
 
 #Class for running tests
 controller = Interface()
@@ -15,7 +16,12 @@ controller.getLiveGames()
 controller.getSchedules()
 
 #Update leagues.json
-#controller.getLeagues()
+def worker():
+	controller.getLeagues()
+
+t = threading.Thread(target=worker)
+t.start()
+t.join()
 
 #Add logos to leagues
 #time.sleep(20)
