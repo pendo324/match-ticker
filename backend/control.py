@@ -16,12 +16,7 @@ controller.getLiveGames()
 controller.getSchedules()
 
 #Update leagues.json
-def worker():
-	controller.getLeagues()
-
-t = threading.Thread(target=worker)
-t.start()
-t.join()
+#controller.getLeagues()
 
 #Add logos to leagues
 #time.sleep(20)
