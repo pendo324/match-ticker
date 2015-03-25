@@ -20,4 +20,5 @@ controller.getSchedules()
 
 #Add logos to leagues
 #time.sleep(20)
-controller.addLeagueLogos(controller.getLeagues())
+#this shit takes forever, don't do it unless the schema changed
+#controller.addLeagueLogos(controller.getLeagues())
