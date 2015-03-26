@@ -37,6 +37,7 @@ function insertMatch(rad, dire, league_id, players, livein) {
 }
 
 function teamInfo(team_id) {
+	var team_name, team_logo;
 	var json = $.getJSON('known_teams.json', function(data) {
 		$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
@@ -54,6 +55,7 @@ function teamInfo(team_id) {
 }
 
 function getLeagueInfo(league_id) {
+	var league_id, league_name, league_url;
 	var json = $.getJSON('leagues.json', function(data) {
 		$.each(data.result.leagues, function(i, league) {
 			if (league.leagueid == league_id) {
