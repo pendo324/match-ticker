@@ -37,9 +37,11 @@ function getTeamInfo(team_id) {
 		$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
+					console.log(team.name);
 					return teamInfo(team.name, team.logo);
 				}
 				else {
+					console.log(team.name);
 					logo = '';
 					return teamInfo(team.name, team.logo);
 				}
