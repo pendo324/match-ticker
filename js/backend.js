@@ -40,7 +40,6 @@ function getTeamInfo(team_id) {
 		$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
-					console.log(team.name);
 					self.team_name = team.name;
 					self.team_logo = team.logo;
 				}
