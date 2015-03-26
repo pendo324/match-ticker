@@ -37,7 +37,7 @@ function insertMatch(rad, dire, league_id, players, livein) {
 			rad_logo = team_logo;
     	});
 
-    	$.wehn(dfrd2).done(function() {
+    	$.when(dfrd2).done(function() {
     		console.log(team_name);
     		dire_name = team_name;
     		dire_logo = team_logo;
