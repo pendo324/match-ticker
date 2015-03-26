@@ -1,7 +1,7 @@
 function getMatches() {	
 	console.log('at least the function got called...')
 	var test;
-	$.ajax({
+	/*$.ajax({
 		url: 'live_games.json',
 		dataType: 'text',
 		success: function(data) {
@@ -16,9 +16,10 @@ function getMatches() {
 				}
 			}
 		}
-	});
-	/*var matchList = $.getJSON("live_games.json").done(function(data) {
-		json = JSON.parse(data);
+	});*/
+	$.getJSON("live_games.json", function(json) {
+		//json = JSON.parse(data);
+		test = json;
 		for (var i = 0; i < json.length; i++) {
 			var match = JSON.parse(json).result.games[i];
 			console.log("For loop?");
@@ -28,7 +29,7 @@ function getMatches() {
 				}
 			}
 		}
-	});*/
+	});
 	return test;
 }
 
