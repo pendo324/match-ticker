@@ -20,6 +20,7 @@ function insertMatch(rad, dire, league_id, players, livein) {
 	if (typeof livein === 'undefined') {
 		//get team tag, players, and logo file location
 		$.when(getTeamInfo(rad)).then(function () {
+			console.log(team_name);
 			rad_name = team_name;
 			rad_logo = team_logo;
 		});
