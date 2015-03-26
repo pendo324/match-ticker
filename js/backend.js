@@ -3,10 +3,8 @@ function getMatches() {
 	var json = $.getJSON('live_games.json', function(data) {
 		console.log('json has been parsed I guess')
 		$.each(data.result.games, function(i, match) {
-			console.log("each statement: " + i + ' ' + match);
 			if (match.hasOwnProperty('radiant_team')) {
 				if (match.hasOwnProperty('dire_team')) {
-					console.log("wtf, it actually worked?")
 					insertMatch(match.radiant_team.team_id, match.dire_team.team_id, 
 						match.league_id, match.players);
 				}
@@ -44,13 +42,14 @@ function getTeamInfo(team_id) {
 			if (team.id == team_id) {
 				team_name = team.name;
 				if (team.hasOwnProperty('logo')) {
-					team_logo = team.logo;
 					console.log(team.name, team.logo);
 					console.log(name, logo);
 					teamInfo(team.name, team.logo);
 				}
 				else {
 					logo = '';
+					console.log(team.name, team.logo);
+					console.log(name, logo);
 					teamInfo(team.name, team.logo);
 				}
 			}
