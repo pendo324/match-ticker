@@ -51,6 +51,7 @@ function getTeamInfo(team_id) {
 }
 
 function teamInfo(name, logo) {
+	console.log(name);
 	return [name, logo];
 }
 
