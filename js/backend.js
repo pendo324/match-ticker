@@ -17,13 +17,19 @@ function getMatches() {
 function insertMatch(rad, dire, league_id, players, livein) {
 	var rad_name, rad_logo, dire_name, dire_logo, tourney_name, tourney_url, tourney_logo;
 	var dfrd1 = $.Deferred();
+	var dfrd2 = $.Deferred();
 	//not a future match, so it must be live
 	if (typeof livein === 'undefined') {
 		//get team tag, players, and logo file location
 		setTimeout(function(){
 			getTeamInfo(rad);
         	dfrd1.resolve();
-    	}, 1000);
+    	}, 100);
+
+    	setTimeout(function() {
+    		getTeamInfo(dire);
+    		dfrd2.resolve();
+    	}, 100);
 
     	$.when(dfrd1).done(function() {
     		console.log(team_name);
@@ -31,15 +37,21 @@ function insertMatch(rad, dire, league_id, players, livein) {
 			rad_logo = team_logo;
     	});
 
+    	$.wehn(dfrd2).done(function() {
+    		console.log(team_name);
+    		dire_name = team_name;
+    		dire_logo = team_logo;
+    	});
+
 		/*$.when(getTeamInfo(rad)).done(function () {
 			console.log(team_name);
 			rad_name = team_name;
 			rad_logo = team_logo;
 		});*/
-		$.when(getTeamInfo(dire)).done(function () {
+		/*$.when(getTeamInfo(dire)).done(function () {
 			dire_name = team_name;
 			dire_logo = team_logo;
-		});
+		});*/
 		$.when(getLeagueInfo(league_id)).done(function() {
 			tourney_name = league_name;
 			tourney_url = league_url;
