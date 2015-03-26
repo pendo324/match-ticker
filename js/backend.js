@@ -34,7 +34,8 @@ function insertMatch(rad, dire, league_id, players, livein) {
 
 function getTeamInfo(team_id) {
 	var json = $.getJSON('known_teams.json', function(data) {
-		$.each(data.teams, function(i, team) {
+		return data;
+		/*$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
 					console.log(team.name);
@@ -46,12 +47,11 @@ function getTeamInfo(team_id) {
 					return teamInfo(team.name, team.logo);
 				}
 			}
-		});
-	})	
+		})*/
+	});
 }
 
 function teamInfo(name, logo) {
-	console.log(name);
 	return [name, logo];
 }
 
