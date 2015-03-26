@@ -2,6 +2,7 @@ function getMatches() {
 	var matchList = $.getJSON("live_games.json").done(function(json) {
 		for (var i = 0; i < json.length; i++) {
 			var match = json.result.games[i];
+			console.log(match);
 			if (match.hasOwnProperty(radiant_team)) {
 				if (match.hasOwnProperty(dire_team)) {
 					instertMatch(match.radiant_team.team_id, match.dire_team.team_id, match.league_id, match.players);
