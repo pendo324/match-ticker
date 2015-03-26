@@ -34,9 +34,10 @@ function insertMatch(rad, dire, league_id, players, livein) {
 		});
 		console.log(rad_name + ' &&& ' + dire_name);
 		$('#matches').append('<div class=\'row col-xs-10 col-md-10 col-md-offset-1 col-xs-offset-1\' style=\'outline: 1px solid orange;\'><h3 col-md-1> <img src=\'' +
-		tourney_logo + '\' class=\'img-responsive img-thumbnail\' />' + tourney_name + '</h3> <h4 class=\'col-md-12 text-center\'><img src=\'' + 
+		tourney_logo + '\' class=\'img-responsive img-thumbnail\'/>' + tourney_name + 
+		'</h3> <h4 class=\'col-md-12 text-center\'><img src=\'' + 
 		rad_logo + '\' class=\'img-responsive img-thumbnail\' /> ' + rad_name +
-		'VS'+ dire_name +' <img src=\'' + dire_logo + 
+		' <strong>vs.</strong> '+ dire_name +' <img src=\'' + dire_logo + 
 		'\' class=\'img-responsive img-thumbnail\' /></h4></div>');
 	}
 	else { //future match from schedule.json
