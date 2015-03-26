@@ -2,7 +2,7 @@ function getMatches() {
 	console.log('at least it called');
 	var json = $.parseJSON('live_games.json', function(data) {
 		console.log('json has been parsed I guess')
-		$.each(data.response.result.games function(match, i) {
+		$.each(data.response.result.games, function(match, i) {
 			console.log("each statement...")
 			if ('radiant_team' in match) {
 				if ('dire_team' in match) {
