@@ -1,5 +1,5 @@
 function getMatches() {	
-	var matchList = $.getJson("live_games").done(function(json) {
+	var matchList = $.getJSON("live_games").done(function(json) {
 		for (var i = 0; i < json.length; i++) {
 			var match = json.result.games[i];
 			if (match.hasOwnProperty(radiant_team)) {
@@ -29,7 +29,7 @@ function insertMatch(rad, dire, league_id, players, livein) {
 }
 
 function teamInfo(team_id) {
-	var teams = $.getJson("known_teams.json").done(function(json) {
+	var teams = $.getJSON("known_teams.json").done(function(json) {
 		for (var i = 0; i < json.length; i++) {
 			var team = json.teams[i];
 			if (team.id == team_id) {
@@ -43,7 +43,7 @@ function getLeagueInfo(league_id) {
 	var name = '';
 	var logo = '';
 	var url = '';
-	var logo = $.getJson("leagues.json").done(function(json) {
+	var logo = $.getJSON("leagues.json").done(function(json) {
 		for (var i = 0; i < json.leagues; i++) {
 			var league = json.result.leagues[i];
 			name = league.name;
