@@ -1,10 +1,12 @@
 function getMatches() {	
 	console.log('at least the function got called...')
+	var test;
 	$.ajax({
 		url: 'live_games.json',
 		dataType: 'text',
 		success: function(data) {
 			var json = $.parseJSON(data);
+			test = json;
 			for (var i = 0; i < json.length; i++) {
 				var match = json.result.games[i];
 				if (match.hasOwnProperty(radiant_team)) {
@@ -27,7 +29,7 @@ function getMatches() {
 			}
 		}
 	});*/
-	//return matchList;
+	return test;
 }
 
 function insertMatch(rad, dire, league_id, players, livein) {
