@@ -19,16 +19,16 @@ function insertMatch(rad, dire, league_id, players, livein) {
 	//not a future match, so it must be live
 	if (typeof livein === 'undefined') {
 		//get team tag, players, and logo file location
-		$.when(getTeamInfo(rad)).then(function () {
+		$.when(getTeamInfo(rad)).done(function () {
 			console.log(team_name);
 			rad_name = team_name;
 			rad_logo = team_logo;
 		});
-		$.when(getTeamInfo(dire)).then(function () {
+		$.when(getTeamInfo(dire)).done(function () {
 			dire_name = team_name;
 			dire_logo = team_logo;
 		});
-		$.when(getLeagueInfo(league_id)).then(function() {
+		$.when(getLeagueInfo(league_id)).done(function() {
 			tourney_name = league_name;
 			tourney_url = league_url;
 			tourney_logo = league_logo;
@@ -66,7 +66,6 @@ function getTeamInfo(team_id) {
 }
 
 function teamInfo(name, logo) {
-	console.log(name);
 	team_name = name;
 	team_logo = logo;
 	return [name, logo];
