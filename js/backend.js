@@ -40,10 +40,13 @@ function getTeamInfo(team_id) {
 	var team_name, team_logo;
 	var json = $.getJSON('known_teams.json', function(data) {
 		$.each(data.teams, function(i, team) {
+			var name, logo;
 			if (team.id == team_id) {
 				team_name = team.name;
 				if (team.hasOwnProperty('logo')) {
 					team_logo = team.logo;
+					console.log(team.name, team.logo);
+					console.log(name, logo);
 					teamInfo(team.name, team.logo);
 				}
 				else {
