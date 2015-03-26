@@ -1,51 +1,19 @@
 function getMatches() {	
-	console.log('at least the function got called...')
-	var test;
-	/*$.ajax({
-		url: 'live_games.json',
-		dataType: 'text',
-		success: function(data) {
-			var json = $.parseJSON(data);
-			test = json;
-			for (var i = 0; i < json.length; i++) {
-				var match = json.result.games[i];
-				if (match.hasOwnProperty(radiant_team)) {
-					if (match.hasOwnProperty(dire_team)) {
-						instertMatch(match.radiant_team.team_id, match.dire_team.team_id, match.league_id, match.players);
-					}
+	console.log('at least it called');
+	var json = $.parseJSON('live_games.json', function(data) {
+		console.log('json has been parsed I guess')
+		$.each(data.response.result.games function(match, i) {
+			console.log("each statement...")
+			if ('radiant_team' in match) {
+				if ('dire_team' in match) {
+					console.log("wtf, it actually worked?")
+					insertMatch(match.radiant_team.team_id, match.dire_team.team_id, 
+						match.league_id, match.players);
 				}
 			}
-		}
-	});*/
-	_json = $.getJSON("live_games.json");
-	console.log(_json);
-	$.each(_json.responseJSON.result.games, function(i, match) {
-		if (match.hasOwnProperty('dire_team')) {
-			if (match.hasOwnProperty('radiant_team')) {
-				insertMatch(match.radiant_team.team_id, match.dire_team.team_id, match.league_id, match.players);
-			}
-		}
+		});
 	});
-	/*.done(function(data) {
-		test = data;
-		$.each(data.result.games, function(i, match) {
-			if (match.hasOwnProperty('dire_team')) {
-				if (match.hasOwnProperty('radiant_team')) {
-					insertMatch(match.radiant_team.team_id, match.dire_team.team_id, match.league_id, match.players);
-				}
-			}
-		})
-		/*for (var i = 0; i < json.length; i++) {
-			var match = JSON.parse(json).result.games[i];
-			console.log("For loop?");
-			if (match.hasOwnProperty(radiant_team)) {
-				if (match.hasOwnProperty(dire_team)) {
-					instertMatch(match.radiant_team.team_id, match.dire_team.team_id, match.league_id, match.players);
-				}
-			}
-		}
-	});*/
-	return _json;
+	return json;
 }
 
 function insertMatch(rad, dire, league_id, players, livein) {
@@ -65,58 +33,13 @@ function insertMatch(rad, dire, league_id, players, livein) {
 }
 
 function teamInfo(team_id) {
-	$.ajax({
-		url: 'leagues.json',
-		dataType: 'text',
-		success: function(data) {
-			var json = $.parseJSON(data);
-			for (var i = 0; i < json.length; i++) {
-				var team = json.teams[i];
-				if (team.id == team_id) {
-					return [team.name, team.logo, team.tag, team.roster];
-				}
-			}
-		}
-	});
-	/*var teams = $.getJSON("known_teams.json").done(function(json) {
-		for (var i = 0; i < json.length; i++) {
-			var team = json.teams[i];
-			if (team.id == team_id) {
-				return [team.name, team.logo, team.tag, team.roster];
-			}
-		}
-	});*/
+
 }
 
 function getLeagueInfo(league_id) {
 	var name = '';
 	var logo = '';
 	var url = '';
-	$.ajax({
-		url: 'leagues.json',
-		dataType: 'text',
-		success: function(data) {
-			var json = $.parseJSON(data);
-			for (var i = 0; i < json.length; i++) {
-				var league = json.result.leagues[i];
-				name = league.name;
-				logo = league.logo;
-				url = league.tournament_url;
-			}
-		}
-	});
 
-	/*$.getJSON('live_games.json', function(data) { 
-		retrun data; 
-	});*/
-	/*var logo = $.getJSON("leagues.json").done(function(data) {
-		json = JSON.parse(data);
-		for (var i = 0; i < json.length; i++) {
-			var league = json.result.leagues[i];
-			name = league.name;
-			logo = league.logo;
-			url = league.tournament_url;
-		}
-	});*/
 	return [name, logo, url];
 }
