@@ -1,6 +1,20 @@
 function getMatches() {	
 	console.log('at least the function got called...')
-	var matchList = $.getJSON("live_games.json").done(function(data) {
+	$.ajax({
+		url: 'live_games.json',
+		dataType: 'text',
+		success: function(data) {
+			var json = $.parseJSON(data);
+			for (var i = 0; i < json.length; i++) {
+				var match = json.result.games[i];
+				if (match.hasOwnProperty(radiant_team)) {
+					if (match.hasOwnProperty(dire_team)) {
+						instertMatch(match.radiant_team.team_id, match.dire_team.team_id, match.league_id, match.players);
+					}
+				}
+			}
+	});
+	/*var matchList = $.getJSON("live_games.json").done(function(data) {
 		json = JSON.parse(data);
 		for (var i = 0; i < json.length; i++) {
 			var match = JSON.parse(json).result.games[i];
@@ -11,7 +25,7 @@ function getMatches() {
 				}
 			}
 		}
-	})
+	});*/
 	return matchList;
 }
 
@@ -32,21 +46,45 @@ function insertMatch(rad, dire, league_id, players, livein) {
 }
 
 function teamInfo(team_id) {
-	var teams = $.getJSON("known_teams.json").done(function(json) {
+	$.ajax({
+		url: 'leagues.json',
+		dataType: 'text',
+		success: function(data) {
+			var json = $.parseJSON(data);
+			for (var i = 0; i < json.length; i++) {
+				var team = json.teams[i];
+				if (team.id == team_id) {
+					return [team.name, team.logo, team.tag, team.roster];
+				}
+			}
+	});
+	/*var teams = $.getJSON("known_teams.json").done(function(json) {
 		for (var i = 0; i < json.length; i++) {
 			var team = json.teams[i];
 			if (team.id == team_id) {
 				return [team.name, team.logo, team.tag, team.roster];
 			}
 		}
-	})
+	});*/
 }
 
 function getLeagueInfo(league_id) {
 	var name = '';
 	var logo = '';
 	var url = '';
-	var logo = $.getJSON("leagues.json").done(function(data) {
+	$.ajax({
+		url: 'leagues.json',
+		dataType: 'text',
+		success: function(data) {
+			var json = $.parseJSON(data);
+			for (var i = 0; i < json.length; i++) {
+				var league = json.result.leagues[i];
+				name = league.name;
+				logo = league.logo;
+				url = league.tournament_url;
+			}
+	});
+	/*var logo = $.getJSON("leagues.json").done(function(data) {
 		json = JSON.parse(data);
 		for (var i = 0; i < json.length; i++) {
 			var league = json.result.leagues[i];
@@ -54,6 +92,6 @@ function getLeagueInfo(league_id) {
 			logo = league.logo;
 			url = league.tournament_url;
 		}
-	})
+	});*/
 	return [name, logo, url];
 }
