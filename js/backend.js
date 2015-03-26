@@ -28,7 +28,11 @@ function insertMatch(rad, dire, league_id, players, livein) {
 		rad_info[0] + '</div> <div col-md-1> VS </div> <div col-md-5>' + dire_info[1] + dire_info[0] + '</div> </div>')
 	}
 	else { //future match from schedule.json
-
+		rad_info = teamInfo(rad);
+		dire_info = teamInfo(dire);
+		tourney = getLeagueInfo(league_id);
+		$('#matches').append('<div class=\'row col-xs-10 col-md-10 col-md-offset-1 col-xs-offset-1\'><h1 col-md-1> <img src=\'' +
+		tourney[1] + '\'class=img-\'responsive img-thumbnail\'>' + tourney[0] + '</h1> <div col-md-5>' + 'Na`vi' + '</div> <div col-md-1> VS </div> <div col-md-5>' + 'Na`vi' + '</div> </div>')
 	}
 }
 
