@@ -32,7 +32,7 @@ function insertMatch(rad, dire, league_id, players, livein) {
 		dire_info = teamInfo(dire);
 		tourney = getLeagueInfo(league_id);
 		$('#matches').append('<div class=\'row col-xs-10 col-md-10 col-md-offset-1 col-xs-offset-1\'><h1 col-md-1> <img src=\'' +
-		tourney[1] + '\'class=img-\'responsive img-thumbnail\'>' + tourney[0] + '</h1> <div col-md-5>' + 'Na`vi' + '</div> <div col-md-1> VS </div> <div col-md-5>' + 'Na`vi' + '</div> </div>')
+		tourney[1] + '\'class=img-\'responsive img-thumbnail\'>' + tourney[0] + '</h1> <div class=\'col-md-5\'>' + 'Na`vi' + '</div> <div class=\'col-md-1\'> VS </div> <div class=\'col-md-5\'>' + 'Na`vi' + '</div> </div>')
 	}
 }
 
@@ -47,12 +47,10 @@ function getLeagueInfo(league_id) {
 
 	var json = $.getJSON('leagues.json', function(data) {
 		$.each(data.result.leagues, function(i, league) {
-			if (league.hasOwnProperty('radiant_team')) {
-				if (league_id = league.leagueid) {
-					name = league.name;
-					logo = league.logo;
-					url = league.tournament_url;
-				}
+			if (league_id == league.leagueid) {
+				name = league.name;
+				logo = league.logo;
+				url = league.tournament_url;
 			}
 		});
 	});	
