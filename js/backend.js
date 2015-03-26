@@ -37,9 +37,10 @@ function insertMatch(rad, dire, league_id, players, livein) {
 
 function getTeamInfo(team_id) {
 	$.getJSON('known_teams.json', function(data) {
-		for(team in data) {
+		for(var team in data) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
+					console.log('nope' + team.name);
 					team_name = team.name;
 					team_logo = team.logo;
 				}
