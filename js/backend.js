@@ -39,18 +39,15 @@ function getTeamInfo(team_id) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
 					console.log(team.name);
-					team_name = team.name;
-					team_logo = team.logo;
+					return [team.name, team.logo];
 				}
 				else {
 					logo = '';
-					team_name = team.name;
-					team_logo = team.logo;
+					return [team.name, team_logo = team.logo];
 				}
 			}
-		})
-	});
-	return [team_name, team_logo];
+		}())
+	}());
 }
 
 function teamInfo(name, logo, data) {
