@@ -33,12 +33,11 @@ function insertMatch(rad, dire, league_id, players, livein) {
 			tourney_logo = league_logo;
 		});
 		console.log(rad_name + ' &&& ' + dire_name);
-		$('#matches').append('<div class=\'row col-xs-10 col-md-10 col-md-offset-1 col-xs-offset-1\' style=\'outline: 1px solid orange;\'><h3 col-md-1> <img src=\'' +
-		tourney_logo + '\' class=\'img-responsive img-thumbnail\'/>' + tourney_name + 
-		'</h3> <h4 class=\'col-md-12 text-center\'><img src=\'' + 
-		rad_logo + '\' class=\'img-responsive img-thumbnail\' /> ' + rad_name +
-		' <strong>vs.</strong> '+ dire_name +' <img src=\'' + dire_logo + 
-		'\' class=\'img-responsive img-thumbnail\' /></h4></div>');
+		$('#matches').append('<div class=\'row col-xs-10 col-md-10 col-md-offset-1 col-xs-offset-1\' style=\'outline: 1px solid orange;\'><h3 id=\'radiant\' col-md-1> <img src=\'' +
+		tourney_logo + '\' class=\'img-responsive img-thumbnail\' />' + tourney_name + '</h3> <h4 class=\'col-md-5 text-right\'><img src=\'' + 
+		rad_logo + '\' class=\'img-responsive img-thumbnail\' /> ' + rad_name + '</h4> <h5 id=\'vs\' style=\'padding: 15%, 0, 15%, 0;\'class=\'col-md-1 text-center\'>VS</h5>' +
+		'</h4><h4 id=\'dire\' class=\'col-md-5 text-left\'>'+ dire_name +'<img src=\'' + dire_logo + 
+		'\' class=\'img-responsive img-thumbnail\' /></div>');
 	}
 	else { //future match from schedule.json
 		rad_info = getTeamInfo(rad);
