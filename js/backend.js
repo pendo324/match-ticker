@@ -37,13 +37,12 @@ function insertMatch(rad, dire, league_id, players, livein) {
 }
 
 function teamInfo(team_id) {
-	var logo;
 	var json = $.getJSON('known_teams.json', function(data) {
 		$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
-				name = team.name;
+				team_name = team.name;
 				if (team.hasOwnProperty('logo')) {
-					logo = team.logo;
+					team_logo = team.logo;
 				}
 				else {
 					logo = '';
@@ -51,18 +50,18 @@ function teamInfo(team_id) {
 			}
 		});
 	});	
-	return [name, logo]
+	return [team_name, team_logo]
 }
 
 function getLeagueInfo(league_id) {
 	var json = $.getJSON('leagues.json', function(data) {
 		$.each(data.result.leagues, function(i, league) {
 			if (league.leagueid == league_id) {
-				name = league.name;
-				logo = league.logo;
-				url = league.tournament_url;
+				league_name = league.name;
+				league_logo = league.logo;
+				league_url = league.tournament_url;
 			}
 		});
 	});	
-	return [name, logo, url];
+	return [league_name, league_logo, league_url];
 }
