@@ -44,6 +44,8 @@ function getTeamInfo(team_id) {
 				if (team.hasOwnProperty('logo')) {
 					team_name = team.name;
 					team_logo = team.logo;
+					console.log(team.name);
+					teamInfo(team.name, team.logo)
 					return false;
 				}
 				else {
@@ -57,8 +59,11 @@ function getTeamInfo(team_id) {
 	});
 }
 
-function teamInfo(name, logo, data) {
-	return [name, logo, data];
+function teamInfo(name, logo) {
+	console.log(name);
+	team_name = name;
+	team_logo = logo;
+	return [name, logo];
 }
 
 function getLeagueInfo(league_id) {
