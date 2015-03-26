@@ -20,8 +20,8 @@ function getMatches() {
 	$.getJSON("live_games.json").done(function(data) {
 		test = data;
 		$.each(data.result.games, function(i, match) {
-			if (match.hasOwnProperty(dire_team)) {
-				if (match.hasOwnProperty(radiant_team)) {
+			if (match.hasOwnProperty('dire_team')) {
+				if (match.hasOwnProperty('radiant_team')) {
 					instertMatch(match.radiant_team.team_id, match.dire_team.team_id, match.league_id, match.players);
 				}
 			}
