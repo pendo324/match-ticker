@@ -1,11 +1,9 @@
 function getMatches() {	
 	console.log('at least the function got called...')
 	var matchList = $.getJSON("live_games.json").done(function(json) {
-		console.log(json);
-		var test = json;
 		for (var i = 0; i < json.length; i++) {
 			var match = json.result.games[i];
-			console.log(match);
+			console.log("For loop?")
 			if (match.hasOwnProperty(radiant_team)) {
 				if (match.hasOwnProperty(dire_team)) {
 					instertMatch(match.radiant_team.team_id, match.dire_team.team_id, match.league_id, match.players);
@@ -20,8 +18,8 @@ function insertMatch(rad, dire, league_id, players, livein) {
 	//not a future match, so it must be live
 	if (typeof livein === 'undefined') {
 		//get team tag, players, and logo file location
-		rad_info = teamInfo(team_id);
-		dire_info = teamInfo(team_id);
+		rad_info = teamInfo(rad);
+		dire_info = teamInfo(dire);
 		tourney = getLeagueInfo();
 		$('#matches').append('<div class=\'row col-xs-10 col-md-10 col-md-offset-1 col-xs-offset-1\'><h1 col-md-1> <img src=\'' +
 		tourney[1] + '\'class=img-\'responsive img-thumbnail\'>' + tourney[0] + '</h1> <div col-md-5>' + rad_info[1] + 
