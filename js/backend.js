@@ -1,3 +1,6 @@
+var team_name;
+var team_logo;
+
 function getMatches() {	
 	var json = $.getJSON('live_games.json', function(data) {
 		$.each(data.result.games, function(i, match) {
@@ -33,25 +36,23 @@ function insertMatch(rad, dire, league_id, players, livein) {
 }
 
 function getTeamInfo(team_id) {
-	var team_name;
-	var team_logo;
 	var self = this;
 	var json = $.getJSON('known_teams.json', function(data) {
 		$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
-					self.team_name = team.name;
-					self.team_logo = team.logo;
+					team_name = team.name;
+					team_logo = team.logo;
 				}
 				else {
 					logo = '';
-					self.team_name = team.name;
-					self.team_logo = team.logo;
+					team_name = team.name;
+					team_logo = team.logo;
 				}
 			}
 		});
 	});
-	console.log(this.team_name);
+	console.log(team_name);
 }
 
 function teamInfo(name, logo, data) {
