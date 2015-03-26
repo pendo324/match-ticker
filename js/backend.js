@@ -106,9 +106,9 @@ function getLeagueInfo(league_id) {
 		}
 	});
 
-	$.getJSON('live_games.json', function(data) { 
+	/*$.getJSON('live_games.json', function(data) { 
 		retrun data; 
-	});
+	});*/
 	/*var logo = $.getJSON("leagues.json").done(function(data) {
 		json = JSON.parse(data);
 		for (var i = 0; i < json.length; i++) {
