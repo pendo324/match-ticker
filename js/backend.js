@@ -33,7 +33,8 @@ function insertMatch(rad, dire, league_id, players, livein) {
 }
 
 function getTeamInfo(team_id) {
-	var this.team_name, this.team_logo;
+	var team_name;
+	var team_logo;
 	var self = this;
 	var json = $.getJSON('known_teams.json', function(data) {
 		$.each(data.teams, function(i, team) {
@@ -49,7 +50,7 @@ function getTeamInfo(team_id) {
 					self.team_logo = team.logo;
 				}
 			}
-		})
+		});
 	});
 	console.log(this.team_name);
 }
