@@ -40,6 +40,7 @@ function getTeamInfo(team_id) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
 					team_name = team.name;
+					team_name = 'fuck this shit';
 					team_logo = team.logo;
 					return false;
 				}
