@@ -47,7 +47,7 @@ function getLeagueInfo(league_id) {
 
 	var json = $.getJSON('leagues.json', function(data) {
 		$.each(data.result.leagues, function(i, league) {
-]			if (league.leagueid == league_id) {
+			if (league.leagueid == league_id) {
 				console.log('???');
 				name = league.name;
 				logo = league.logo;
