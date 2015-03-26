@@ -1,6 +1,3 @@
-var team_name;
-var team_logo;
-
 function getMatches() {	
 	var json = $.getJSON('live_games.json', function(data) {
 		$.each(data.result.games, function(i, match) {
@@ -27,8 +24,8 @@ function insertMatch(rad, dire, league_id, players, livein) {
 		rad_info[1] + '/>\'' + rad_info[0] + '</div> <div class=\'col-md-1 text-center\'> VS </div> <div class=\'col-md-5 text-left\'><img src=\'' + 
 		dire_info[1] + '/>\'' + dire_info[0] + '</div> </div>')	}
 	else { //future match from schedule.json
-		rad_info = teamInfo(rad);
-		dire_info = teamInfo(dire);
+		rad_info = getTeamInfo(rad);
+		dire_info = getTeamInfo(dire);
 		tourney = getLeagueInfo(league_id);
 		$('#matches').append('<div class=\'row col-xs-10 col-md-10 col-md-offset-1 col-xs-offset-1\'><h1 col-md-1> <img src=\'' +
 		tourney[1] + '\'class=img-\'responsive img-thumbnail\'>' + tourney[0] + '</h1> <div class=\'col-md-5 text-right\'>' + 'Na`vi' + '</div> <div class=\'col-md-1 text-center\'> VS </div> <div class=\'col-md-5 text-left\'>' + 'Na`vi' + '</div> </div>');
@@ -36,18 +33,21 @@ function insertMatch(rad, dire, league_id, players, livein) {
 }
 
 function getTeamInfo(team_id) {
-	var self = this;
+	var team_name;
+	var team_logo;
 	var json = $.getJSON('known_teams.json', function(data) {
 		$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
 					team_name = team.name;
 					team_logo = team.logo;
+					return false;
 				}
 				else {
 					logo = '';
 					team_name = team.name;
 					team_logo = team.logo;
+					return false;
 				}
 			}
 		});
