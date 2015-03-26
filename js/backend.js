@@ -41,7 +41,12 @@ function teamInfo(team_id) {
 		$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
 				name = team.name;
-				logo = team.logo;
+				if (team.hasOwnProperty('logo')) {
+					logo = team.logo;
+				}
+				else {
+					logo = '';
+				}
 			}
 		});
 	});	
