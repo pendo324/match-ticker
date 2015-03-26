@@ -1,5 +1,7 @@
 function getMatches() {	
+	console.log('at least the function got called...')
 	var matchList = $.getJSON("live_games.json").done(function(json) {
+		console.log(json);
 		for (var i = 0; i < json.length; i++) {
 			var match = json.result.games[i];
 			console.log(match);
