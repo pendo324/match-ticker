@@ -5972,7 +5972,7 @@ a.list-group-item-danger.active:focus {
 .panel {
     margin-bottom: 20px;
     background-image: linear-gradient(to bottom, #f8f8f8 0, #D1D1D1 100%);
-    background-color: #C6C6C6;
+    background-color: #D1D1D1;
     border-color: #646464;
     background-repeat: repeat-x;
     /*background-color: #fff;*/
