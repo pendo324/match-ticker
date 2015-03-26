@@ -16,14 +16,26 @@ function getMatches() {
 
 function insertMatch(rad, dire, league_id, players, livein) {
 	var rad_name, rad_logo, dire_name, dire_logo, tourney_name, tourney_url, tourney_logo;
+	var dfrd1 = $.Deferred();
 	//not a future match, so it must be live
 	if (typeof livein === 'undefined') {
 		//get team tag, players, and logo file location
-		$.when(getTeamInfo(rad)).done(function () {
+		setTimeout(function(){
+			getTeamInfo(rad);
+        	dfrd1.resolve();
+    	}, 1000);
+
+    	$.when(dfrd1).done(function() {
+    		console.log(team_name);
+    		rad_name = team_name;
+			rad_logo = team_logo;
+    	});
+
+		/*$.when(getTeamInfo(rad)).done(function () {
 			console.log(team_name);
 			rad_name = team_name;
 			rad_logo = team_logo;
-		});
+		});*/
 		$.when(getTeamInfo(dire)).done(function () {
 			dire_name = team_name;
 			dire_logo = team_logo;
@@ -33,10 +45,10 @@ function insertMatch(rad, dire, league_id, players, livein) {
 			tourney_url = league_url;
 			tourney_logo = league_logo;
 		});
-		$('#matches').append('<div class=\'row col-xs-10 col-md-10 col-md-offset-1 col-xs-offset-1\'><h1 col-md-1> <img src=\'' +
-		tourney_logo + '\'class=img-\'responsive img-thumbnail\'>' + tourney_name + '</h1> <div class=\'col-md-5 text-right\'><img src=\'' + 
-		team_logo + '/>\'' + rad_name + '</div> <div class=\'col-md-1 text-center\'> VS </div> <div class=\'col-md-5 text-left\'><img src=\'' + 
-		dire_logo + '/>\'' + dire_name + '</div> </div>')	}
+		$('#matches').append('<div class=\'row col-xs-10 col-md-10 col-md-offset-1 col-xs-offset-1\'><h3 col-md-1> <img src=\'' +
+		tourney_logo + '\'class=img-\'responsive img-thumbnail\'>' + tourney_name + '</h3> <h4 class=\'col-md-5 text-right\'><img src=\'' + 
+		team_logo + '/>\'' + rad_name + '</h4> <h5 class=\'col-md-1 text-center\'> VS </h5> <h4 class=\'col-md-5 text-left\'><img src=\'' + 
+		dire_logo + '/>\'' + dire_name + '</h4> </div>')	}
 	else { //future match from schedule.json
 		rad_info = getTeamInfo(rad);
 		dire_info = getTeamInfo(dire);
@@ -48,7 +60,6 @@ function insertMatch(rad, dire, league_id, players, livein) {
 
 function getTeamInfo(team_id) {
 	$.getJSON('known_teams.json', function(data) {
-
 		$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
