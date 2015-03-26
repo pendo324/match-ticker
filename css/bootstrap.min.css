@@ -5971,8 +5971,9 @@ a.list-group-item-danger.active:focus {
 
 .panel {
     margin-bottom: 20px;
+    background-image: linear-gradient(to bottom,#fff 0,#f8f8f8 100%);
     background-color: #f8f8f8;
-    border-color: #e7e7e7
+    border-color: #e7e7e7;
     /*background-color: #fff;*/
     border: 1px solid transparent;
     border-radius: 4px;
