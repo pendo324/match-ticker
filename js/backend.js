@@ -43,7 +43,7 @@ function getLeagueInfo(league_id) {
 
 	var json = $.getJSON('leagues.json', function(data) {
 		$.each(data.result.leagues, function(i, league) {
-			if (match.hasOwnProperty('radiant_team')) {
+			if (league.hasOwnProperty('radiant_team')) {
 				if (league_id = league.leagueid) {
 					name = league.name;
 					logo = league.logo;
