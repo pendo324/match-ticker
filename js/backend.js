@@ -19,6 +19,7 @@ function insertMatch(rad, dire, league_id, players, livein) {
 	//not a future match, so it must be live
 	if (typeof livein === 'undefined') {
 		//get team tag, players, and logo file location
+		console.log(rad);
 		rad_info = getTeamInfo(rad);
 		dire_info = getTeamInfo(dire);
 		tourney = getLeagueInfo(league_id);
@@ -37,21 +38,7 @@ function insertMatch(rad, dire, league_id, players, livein) {
 
 function getTeamInfo(team_id) {
 	$.getJSON('known_teams.json', function(data) {
-		for(var team in data.teams) {
-			if (team.id == team_id) {
-				if (team.hasOwnProperty('logo')) {
-					console.log('nope' + team.name);
-					team_name = team.name;
-					team_logo = team.logo;
-				}
-				else {
-					logo = '';
-					team_name = team.name;
-					team_logo = team.logo;
-				}
-			}
-		}
-		/*$.each(data.teams, function(i, team) {
+		$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
 					team_name = team.name;
@@ -65,9 +52,9 @@ function getTeamInfo(team_id) {
 					return false;
 				}
 			}
-		});*/
+		});
 	});
-	console.log(team_name);
+	console.log(team_id + ' ' + team_name);
 }
 
 function teamInfo(name, logo, data) {
