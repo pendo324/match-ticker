@@ -27,7 +27,7 @@ function getMatches() {
 			}
 		}
 	});*/
-	return matchList;
+	//return matchList;
 }
 
 function insertMatch(rad, dire, league_id, players, livein) {
