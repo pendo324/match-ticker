@@ -1,5 +1,5 @@
 function getMatches() {	
-	var matchList = $.getJSON("live_games").done(function(json) {
+	var matchList = $.getJSON("live_games.json").done(function(json) {
 		for (var i = 0; i < json.length; i++) {
 			var match = json.result.games[i];
 			if (match.hasOwnProperty(radiant_team)) {
