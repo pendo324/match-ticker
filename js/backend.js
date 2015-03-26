@@ -43,8 +43,8 @@ function getMatches() {
 					instertMatch(match.radiant_team.team_id, match.dire_team.team_id, match.league_id, match.players);
 				}
 			}
-		}*/
-	});
+		}
+	});*/
 	return _json;
 }
 
