@@ -17,7 +17,16 @@ function getMatches() {
 			}
 		}
 	});*/
-	$.getJSON("live_games.json").done(function(data) {
+	_json = $.getJSON("live_games.json");
+	console.log(_json);
+	$.each(_json.responseJSON.result.games, function(i, match) {
+		if (match.hasOwnProperty('dire_team')) {
+			if (match.hasOwnProperty('radiant_team')) {
+				insertMatch(match.radiant_team.team_id, match.dire_team.team_id, match.league_id, match.players);
+			}
+		}
+	});
+	/*.done(function(data) {
 		test = data;
 		$.each(data.result.games, function(i, match) {
 			if (match.hasOwnProperty('dire_team')) {
@@ -36,7 +45,7 @@ function getMatches() {
 			}
 		}*/
 	});
-	return test;
+	return _json;
 }
 
 function insertMatch(rad, dire, league_id, players, livein) {
@@ -95,6 +104,10 @@ function getLeagueInfo(league_id) {
 				url = league.tournament_url;
 			}
 		}
+	});
+
+	$.getJSON('live_games.json', function(data) { 
+		retrun data; 
 	});
 	/*var logo = $.getJSON("leagues.json").done(function(data) {
 		json = JSON.parse(data);
