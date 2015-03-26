@@ -34,9 +34,9 @@ function insertMatch(rad, dire, league_id, players, livein) {
 		});
 		console.log(rad_name + ' &&& ' + dire_name);
 		$('#matches').append('<div class=\'row col-xs-10 col-md-10 col-md-offset-1 col-xs-offset-1\' style=\'outline: 1px solid orange;\'><h3 col-md-1> <img src=\'' +
-		tourney_logo + '\' class=\'img-responsive img-thumbnail\' style=\'float:left\'/>' + tourney_name + '</h3> <h4 class=\'col-md-5 text-right\'><img src=\'' + 
-		rad_logo + '\' class=\'img-responsive img-thumbnail\' style=\'float:left\'/>' + rad_name + '</h4> <h5 class=\'col-md-1 text-center\'> VS </h5> <h4 class=\'col-md-5 text-left\'><img src=\'' + 
-		dire_logo + '\' class=\'img-responsive img-thumbnail\' style=\'float:left\'/>' + dire_name + '</h4> </div>');
+		tourney_logo + '\' class=\'img-responsive img-thumbnail\' />' + tourney_name + '</h3> <h4 class=\'col-md-5 text-right\'><img src=\'' + 
+		rad_logo + '\' class=\'img-responsive img-thumbnail\' />' + rad_name + '</h4> <h5 class=\'col-md-1 text-center\'> VS </h5> <h4 class=\'col-md-5 text-left\'><img src=\'' + 
+		dire_logo + '\' class=\'img-responsive img-thumbnail\' />' + dire_name + '</h4> </div>');
 	}
 	else { //future match from schedule.json
 		rad_info = getTeamInfo(rad);
