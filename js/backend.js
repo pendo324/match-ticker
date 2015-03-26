@@ -24,28 +24,34 @@ function insertMatch(rad, dire, league_id, players, livein) {
 		dire_info = teamInfo(dire);
 		tourney = getLeagueInfo(league_id);
 		$('#matches').append('<div class=\'row col-xs-10 col-md-10 col-md-offset-1 col-xs-offset-1\'><h1 col-md-1> <img src=\'' +
-		tourney[1] + '\'class=img-\'responsive img-thumbnail\'>' + tourney[0] + '</h1> <div col-md-5>' + rad_info[1] + 
-		rad_info[0] + '</div> <div col-md-1> VS </div> <div col-md-5>' + dire_info[1] + dire_info[0] + '</div> </div>')
-	}
+		tourney[1] + '\'class=img-\'responsive img-thumbnail\'>' + tourney[0] + '</h1> <div class=\'col-md-5 text-right\'><img src=\'' + 
+		rad_info[1] + '/>\'' + rad_info[0] + '</div> <div class=\'col-md-1 text-center\'> VS </div> <div class=\'col-md-5 text-left\'><img src=\'' + 
+		dire_info[1] + '/>\'' + dire_info[0] + '</div> </div>')	}
 	else { //future match from schedule.json
 		rad_info = teamInfo(rad);
 		dire_info = teamInfo(dire);
 		tourney = getLeagueInfo(league_id);
 		$('#matches').append('<div class=\'row col-xs-10 col-md-10 col-md-offset-1 col-xs-offset-1\'><h1 col-md-1> <img src=\'' +
-		tourney[1] + '\'class=img-\'responsive img-thumbnail\'>' + tourney[0] + '</h1> <div class=\'col-md-5 text-right\'>' + 'Na`vi' + '</div> <div class=\'col-md-1 text-center\'> VS </div> <div class=\'col-md-5 text-left\'>' + 'Na`vi' + '</div> </div>')
+		tourney[1] + '\'class=img-\'responsive img-thumbnail\'>' + tourney[0] + '</h1> <div class=\'col-md-5 text-right\'>' + 'Na`vi' + '</div> <div class=\'col-md-1 text-center\'> VS </div> <div class=\'col-md-5 text-left\'>' + 'Na`vi' + '</div> </div>');
 	}
 }
 
 function teamInfo(team_id) {
-
+	var json = $.getJSON('known_teams.json', function(data) {
+		$.each(data.teams, function(i, team) {
+			if (team.id == team_id) {
+				name = league.name;
+				logo = league.logo;
+			}
+		});
+	});	
+	return [name, logo]
 }
 
 function getLeagueInfo(league_id) {
 	var json = $.getJSON('leagues.json', function(data) {
 		$.each(data.result.leagues, function(i, league) {
 			if (league.leagueid == league_id) {
-				console.log('???');
-				console.log(league.logo);
 				name = league.name;
 				logo = league.logo;
 				url = league.tournament_url;
