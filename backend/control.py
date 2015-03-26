@@ -7,10 +7,10 @@ import threading
 controller = Interface()
 
 #Update known_teams.json
-controller.processTeams(controller.getLiveGames())
+#controller.processTeams(controller.getLiveGames())
 
 #Update live_games.json
-controller.getLiveGames()
+#controller.getLiveGames()
 
 #Update schedule.json
 controller.getSchedules()
