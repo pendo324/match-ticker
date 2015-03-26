@@ -140,9 +140,7 @@ class Interface:
 	def getSchedules(self):
 		schedule_api = "https://api.steampowered.com/IDOTA2Match_570/GetScheduledLeagueGames/v001/?key=" + api_key
 		response = requests.get(schedule_api, headers={'Accept-Encoding': 'gzip'})
-		print response
-		if response == 200:
-			print("kappa?")
+		if response.status_code == 200:
 			schedule = response.json()
 			with open(os.path.dirname(__file__) +'/../schedule.json', 'w') as json_file:
 			 	json_file.write(json.dumps(schedule))
@@ -150,9 +148,10 @@ class Interface:
 	def getLeagues(self):
 		league_api = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v0001/?key=" + api_key + "&language=en_US"
 		rs = requests.get(league_api, headers={'Accept-Encoding': 'gzip'})
-		leagues = json.loads(rs.text)
-		with open(os.path.dirname(__file__) + '/../leagues.json', 'w') as json_file:
-		 	json_file.write(json.dumps(leagues))
+		if response.status_code == 200:
+			leagues = json.loads(rs.text)
+			with open(os.path.dirname(__file__) + '/../leagues.json', 'w') as json_file:
+		 		json_file.write(json.dumps(leagues))
 		return leagues
 	
 	def getLeagueLogo(self, itemdef):
