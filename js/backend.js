@@ -14,7 +14,7 @@ function getMatches() {
 
 function insertMatch(rad, dire, league_id, players, livein) {
 	//not a future match, so it must be live
-	if typeof livein === 'undefined' {
+	if (typeof livein === 'undefined') {
 		//get team tag, players, and logo file location
 		rad_info = teamInfo(team_id);
 		dire_info = teamInfo(team_id);
