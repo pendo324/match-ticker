@@ -44,15 +44,15 @@ function teamInfo(team_id) {
 				team_name = team.name;
 				if (team.hasOwnProperty('logo')) {
 					team_logo = team.logo;
-					return [team.name, team.logo]
+					return [team.name, team.logo];
 				}
 				else {
 					logo = '';
-					return [team.name, team.logo]
+					return [team.name, team.logo];
 				}
 			}
 		});
-	})();	
+	})	
 }
 
 function getLeagueInfo(league_id) {
@@ -63,8 +63,8 @@ function getLeagueInfo(league_id) {
 				league_name = league.name;
 				league_logo = league.logo;
 				league_url = league.tournament_url;
+				return [league.name, league.logo, league.tournament_url];
 			}
 		});
 	});	
-	return [league_name, league_logo, league_url];
 }
