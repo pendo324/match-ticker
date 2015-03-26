@@ -37,7 +37,20 @@ function insertMatch(rad, dire, league_id, players, livein) {
 
 function getTeamInfo(team_id) {
 	$.getJSON('known_teams.json', function(data) {
-		$.each(data.teams, function(i, team) {
+		for(team in data) {
+			if (team.id == team_id) {
+				if (team.hasOwnProperty('logo')) {
+					team_name = team.name;
+					team_logo = team.logo;
+				}
+				else {
+					logo = '';
+					team_name = team.name;
+					team_logo = team.logo;
+				}
+			}
+		}
+		/*$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
 					team_name = team.name;
@@ -51,7 +64,7 @@ function getTeamInfo(team_id) {
 					return false;
 				}
 			}
-		});
+		});*/
 	});
 	console.log(team_name);
 }
