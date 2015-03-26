@@ -1,9 +1,10 @@
 function getMatches() {	
 	console.log('at least the function got called...')
-	var matchList = $.getJSON("live_games.json").done(function(json) {
+	var matchList = $.getJSON("live_games.json").done(function(data) {
+		json = JSON.parse(data);
 		for (var i = 0; i < json.length; i++) {
-			var match = json.result.games[i];
-			console.log("For loop?")
+			var match = JSON.parse(json).result.games[i];
+			console.log("For loop?");
 			if (match.hasOwnProperty(radiant_team)) {
 				if (match.hasOwnProperty(dire_team)) {
 					instertMatch(match.radiant_team.team_id, match.dire_team.team_id, match.league_id, match.players);
@@ -45,8 +46,9 @@ function getLeagueInfo(league_id) {
 	var name = '';
 	var logo = '';
 	var url = '';
-	var logo = $.getJSON("leagues.json").done(function(json) {
-		for (var i = 0; i < json.leagues; i++) {
+	var logo = $.getJSON("leagues.json").done(function(data) {
+		json = JSON.parse(data);
+		for (var i = 0; i < json.length; i++) {
 			var league = json.result.leagues[i];
 			name = league.name;
 			logo = league.logo;
