@@ -140,7 +140,9 @@ class Interface:
 	def getSchedules(self):
 		schedule_api = "https://api.steampowered.com/IDOTA2Match_570/GetScheduledLeagueGames/v001/?key=" + api_key
 		response = requests.get(schedule_api, headers={'Accept-Encoding': 'gzip'})
+		print response
 		if response == 200:
+			print("kappa?")
 			schedule = response.json()
 			with open(os.path.dirname(__file__) +'/../schedule.json', 'w') as json_file:
 			 	json_file.write(json.dumps(schedule))
