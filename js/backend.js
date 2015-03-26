@@ -4,8 +4,8 @@ function getMatches() {
 		console.log('json has been parsed I guess')
 		$.each(data.result.games, function(match, i) {
 			console.log("each statement...")
-			if ('radiant_team' in match) {
-				if ('dire_team' in match) {
+			if (match.hasOwnProperty('radiant_team')) {
+				if (match.hasOwnProperty('dire_team')) {
 					console.log("wtf, it actually worked?")
 					insertMatch(match.radiant_team.team_id, match.dire_team.team_id, 
 						match.league_id, match.players);
