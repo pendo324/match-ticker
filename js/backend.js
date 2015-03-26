@@ -56,7 +56,7 @@ function getTeamInfo(team_id) {
 		$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
-					teamInfo(team.name, '/dev/match-ticker/logos/' + team.name + '.png')
+					teamInfo(team.name, '/dev/match-ticker/logos/' + team.name.replace('\'', '&#39;') + '.png')
 					return false;
 				}
 				else {
