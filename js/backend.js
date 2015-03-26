@@ -13,6 +13,7 @@ function getMatches() {
 					}
 				}
 			}
+		}
 	});
 	/*var matchList = $.getJSON("live_games.json").done(function(data) {
 		json = JSON.parse(data);
@@ -57,6 +58,7 @@ function teamInfo(team_id) {
 					return [team.name, team.logo, team.tag, team.roster];
 				}
 			}
+		}
 	});
 	/*var teams = $.getJSON("known_teams.json").done(function(json) {
 		for (var i = 0; i < json.length; i++) {
@@ -83,6 +85,7 @@ function getLeagueInfo(league_id) {
 				logo = league.logo;
 				url = league.tournament_url;
 			}
+		}
 	});
 	/*var logo = $.getJSON("leagues.json").done(function(data) {
 		json = JSON.parse(data);
