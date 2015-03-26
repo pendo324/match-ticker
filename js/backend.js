@@ -1,3 +1,6 @@
+var team_name;
+var team_logo;
+
 function getMatches() {	
 	var json = $.getJSON('live_games.json', function(data) {
 		$.each(data.result.games, function(i, match) {
@@ -33,14 +36,11 @@ function insertMatch(rad, dire, league_id, players, livein) {
 }
 
 function getTeamInfo(team_id) {
-	var team_name;
-	var team_logo;
-	var json = $.getJSON('known_teams.json', function(data) {
+	$.getJSON('known_teams.json', function(data) {
 		$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
 					team_name = team.name;
-					team_name = 'fuck this shit';
 					team_logo = team.logo;
 					return false;
 				}
