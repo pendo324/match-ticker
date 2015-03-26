@@ -1,5 +1,4 @@
-var team_name;
-var team_logo;
+var team_name, team_logo, league_name, league_url, league_logo;
 
 function getMatches() {	
 	var json = $.getJSON('live_games.json', function(data) {
@@ -20,9 +19,10 @@ function insertMatch(rad, dire, league_id, players, livein) {
 	if (typeof livein === 'undefined') {
 		//get team tag, players, and logo file location
 		console.log(rad);
-		rad_info = getTeamInfo(rad);
-		dire_info = getTeamInfo(dire);
-		tourney = getLeagueInfo(league_id);
+		getTeamInfo(rad);
+		console.log(team_name);
+		getTeamInfo(dire);
+		getLeagueInfo(league_id);
 		$('#matches').append('<div class=\'row col-xs-10 col-md-10 col-md-offset-1 col-xs-offset-1\'><h1 col-md-1> <img src=\'' +
 		tourney[1] + '\'class=img-\'responsive img-thumbnail\'>' + tourney[0] + '</h1> <div class=\'col-md-5 text-right\'><img src=\'' + 
 		rad_info[1] + '/>\'' + rad_info[0] + '</div> <div class=\'col-md-1 text-center\'> VS </div> <div class=\'col-md-5 text-left\'><img src=\'' + 
@@ -38,6 +38,7 @@ function insertMatch(rad, dire, league_id, players, livein) {
 
 function getTeamInfo(team_id) {
 	$.getJSON('known_teams.json', function(data) {
+
 		$.each(data.teams, function(i, team) {
 			if (team.id == team_id) {
 				if (team.hasOwnProperty('logo')) {
@@ -54,7 +55,6 @@ function getTeamInfo(team_id) {
 			}
 		});
 	});
-	console.log(team_id + ' ' + team_name);
 }
 
 function teamInfo(name, logo, data) {
