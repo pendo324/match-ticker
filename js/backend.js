@@ -52,8 +52,8 @@ function getLeagueInfo(league_id) {
 				name = league.name;
 				logo = league.logo;
 				url = league.tournament_url;
-				return [name, logo, url];
 			}
 		});
 	});	
+	return [name, logo, url];
 }
