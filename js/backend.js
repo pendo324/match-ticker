@@ -3,7 +3,7 @@ function getMatches() {
 	var json = $.getJSON('live_games.json', function(data) {
 		console.log('json has been parsed I guess')
 		$.each(data.result.games, function(match, i) {
-			console.log("each statement...")
+			console.log("each statement: " + match);
 			if (match.hasOwnProperty('radiant_team')) {
 				if (match.hasOwnProperty('dire_team')) {
 					console.log("wtf, it actually worked?")
