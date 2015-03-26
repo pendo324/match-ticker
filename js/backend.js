@@ -44,18 +44,19 @@ function teamInfo(team_id) {
 				team_name = team.name;
 				if (team.hasOwnProperty('logo')) {
 					team_logo = team.logo;
+					return [team.name, team.logo]
 				}
 				else {
 					logo = '';
+					return [team.name, team.logo]
 				}
 			}
 		});
-	});	
-	return [team_name, team_logo]
+	})();	
 }
 
 function getLeagueInfo(league_id) {
-	var league_id, league_name, league_url;
+	var league_logo, league_name, league_url;
 	var json = $.getJSON('leagues.json', function(data) {
 		$.each(data.result.leagues, function(i, league) {
 			if (league.leagueid == league_id) {
